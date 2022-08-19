@@ -18,9 +18,9 @@
 {{ Form::label('パスワード確認') }}
 {{ Form::text('password-confirm',null,['class' => 'input']) }}
 
-{{ Form::submit('登録') }}
+{{ Form::submit('登録',['class' => 'button right']) }}
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+<p class="backLink"><a href="/login">ログイン画面へ戻る</a></p>
 
 {!! Form::close() !!}
 
