@@ -5,7 +5,7 @@
 <div id="clear">
 
   <div class="message_hello">
-    <p>〇〇さん、</p>
+    <p>{{$username}}さん、</p>
     <p>ようこそ！DAWNSNSへ！</p>
   </div>
 
@@ -14,7 +14,6 @@
     <p>さっそく、ログインをしてみましょう。</p>
   </div>
 
-  <!-- <p class="loginBtn"><a href="/login">ログイン画面へ</a></p> -->
   <div class="pb30">
     <input class="button center" type="button" value="ログイン画面へ戻る" onclick="location.href='/login'">
   </div>

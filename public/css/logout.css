@@ -62,10 +62,22 @@ label {
 
 .input {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 5px;
     border: none;
     height: 30px;
+}
+
+.createUserForm {
+    margin-bottom: 20px;
+}
+.error {
+    color: #ce5540;
+}
+.has-error input {
+    color: #630015;
+    border-color: #c20c33;
+    background-color: #ffd9e1;
 }
 
 .button {
