@@ -22,12 +22,12 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
+        <h1><a href="/top"><img src="images/main_logo.png" class="main-logo"></a></h1>
+            <div id="menu-toggle">
+                <!-- <div id="user"> -->
+                <p class="username">{{ Auth::user()->username }}さん<span class="down-arrow"></span></p>
+                <!-- <div> -->
+                <ul class="menu">
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
@@ -58,7 +58,15 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
+
+
+<script>
+    $(function() {
+        $('#menu-toggle').click(function() {
+            $(this).children(".menu").toggle();
+        });
+    });
+</script>

@@ -7,6 +7,66 @@ body{
 header{
     background:#3C4767;
 }
+#head {
+    height: 50px;
+}
+
+.main-logo {
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    float: left;
+}
+
+.username {
+    color: #FFF;
+    padding-top: 20px;
+}
+
+.down-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    color: #FFF;
+    line-height: 1;
+    width: 0.5em;
+    height: 0.5em;
+    border: 0.1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateY(-25%) rotate(135deg);
+    margin-left: 0.5em;
+    margin-right: 20px;
+}
+
+#menu-toggle {
+    text-align: right;
+}
+
+.menu {
+    background-color: #FFF;
+    width: 200px;
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    list-style: none;
+}
+.menu li {
+    text-align: center;
+    border: 1px solid #3C4767;
+}
+.menu li :hover {
+    background-color: #de563c;
+    color: #FFF;
+}
+.menu li a {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 200px;
+    display: block;
+    color: black;
+}
 
 /* main content */
 #row{
