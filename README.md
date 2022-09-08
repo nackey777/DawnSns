@@ -12,7 +12,10 @@ C:\xampp\htdocs\dawnSNS-Laravel-6.20.43
 `php artisan serve`
 
 ## ユーザー登録、ログイン機能
-①CSSの調整
-②ユーザー登録（INSERT）
+1.CSSの調整
+2.ユーザー登録（INSERT）
     バリデーションの設定
-③ユーザー情報の表示（READ）
+3.ユーザー情報の表示（READ）
+4.ログイン&ログアウト
+    controllerのconstructで認証させるのがうまくいかなかった
+    web.phpで->middleware('auth')をつけて認証させている

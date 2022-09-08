@@ -38,10 +38,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    
+
     public function login(Request $request){
         if($request->isMethod('post')){
-            
+
             $data=$request->only('mail','password');
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
@@ -50,5 +50,9 @@ class LoginController extends Controller
             }
         }
         return view("auth.login");
+    }
+
+    protected function loggedOut(\Illuminate\Http\Request $request) {
+      return redirect('login');
     }
 }
