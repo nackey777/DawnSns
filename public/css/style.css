@@ -10,19 +10,16 @@ header{
 #head {
     height: 50px;
 }
-
 .main-logo {
     width: 100px;
     height: 50px;
     margin-left: 20px;
     float: left;
 }
-
 .username {
     color: #FFF;
     padding-top: 20px;
 }
-
 .down-arrow {
     display: inline-block;
     vertical-align: middle;
@@ -38,11 +35,9 @@ header{
     margin-left: 0.5em;
     margin-right: 20px;
 }
-
 #menu-toggle {
     text-align: right;
 }
-
 .menu {
     background-color: #FFF;
     width: 200px;
@@ -79,4 +74,45 @@ header{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
+    /* padding-bottom: 100px; */
+}
+
+
+/*フォロー&フォロワーリスト*/
+#confirm {
+    font-size: 0.8rem;
+    border-bottom: 1px solid #6C6C6C;
+    margin-bottom: 20px;
+}
+.confirm-name {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.confirm-title {
+    float: left;
+    margin-left: 10px;
+}
+.confirm-number {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.btn a {
+    display: block;
+    width: 120px;
+    color: #FFF;
+    background-color: #3C4767;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+}
+.confirm-follow a {
+    margin: 0 0 0 auto;
+    margin-bottom: 10px;
+}
+.confirm-search a {
+    margin: auto;
 }

@@ -41,19 +41,19 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p  class="confirm-name">{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <p>〇〇名</p>
+                    <p class="confirm-title">フォロー数</p>
+                    <p class="confirm-number">〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn confirm-follow"><a href="">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
-                <p>〇〇名</p>
+                    <p class="confirm-title">フォロワー数</p>
+                    <p class="confirm-number">〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn confirm-follow"><a href="">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn confirm-search"><a href="">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
