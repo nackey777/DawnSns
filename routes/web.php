@@ -32,7 +32,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 
 //ログイン中のページ
-Route::get('/top','PostsController@index')->middleware('auth');
+Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 

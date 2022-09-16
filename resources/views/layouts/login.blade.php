@@ -44,12 +44,12 @@
                 <p  class="confirm-name">{{ Auth::user()->username }}さんの</p>
                 <div>
                     <p class="confirm-title">フォロー数</p>
-                    <p class="confirm-number">〇〇名</p>
+                    <p class="confirm-number">{{$follow_number}}名</p>
                 </div>
                 <p class="btn confirm-follow"><a href="">フォローリスト</a></p>
                 <div>
                     <p class="confirm-title">フォロワー数</p>
-                    <p class="confirm-number">〇〇名</p>
+                    <p class="confirm-number">{{$follower_number}}名</p>
                 </div>
                 <p class="btn confirm-follow"><a href="">フォロワーリスト</a></p>
             </div>
