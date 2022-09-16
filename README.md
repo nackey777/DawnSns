@@ -7,15 +7,13 @@ migrationのファイルはすでに用意されているので以下コマン�
 
 seederは用意がないので自分で用意する
 
-C:\xampp\htdocs\dawnSNS-Laravel-6.20.43
-起動時には対象のファイルがある場所で以下コマンドを実行
+C:\xampp\htdocs\dawnSNS-Laravel-6.20.43  
+起動時には対象のファイルがある場所で以下コマンドを実行  
 `php artisan serve`
 
 ## ユーザー登録、ログイン機能
-1.CSSの調整
-2.ユーザー登録（INSERT）
-    バリデーションの設定
-3.ユーザー情報の表示（READ）
-4.ログイン&ログアウト
-    controllerのconstructで認証させるのがうまくいかなかった
-    web.phpで->middleware('auth')をつけて認証させている
+1.CSSの調整  
+2.ユーザー登録（INSERT）  
+    バリデーションの設定  
+3.ユーザー情報の表示（READ）  
+4.ログイン&ログアウト  
