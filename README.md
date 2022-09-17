@@ -12,8 +12,9 @@ C:\xampp\htdocs\dawnSNS-Laravel-6.20.43
 `php artisan serve`
 
 ## ユーザー登録、ログイン機能
-1.CSSの調整  
+1.ログイン画面CSSの調整  
 2.ユーザー登録（INSERT）  
     バリデーションの設定  
 3.ユーザー情報の表示（READ）  
-4.ログイン&ログアウト  
+4.ログイン&ログアウト機能  
+5.共通ヘッダー&サイドバーCSSの調整やリンク設置（login.php）  

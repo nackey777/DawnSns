@@ -46,14 +46,14 @@
                     <p class="confirm-title">フォロー数</p>
                     <p class="confirm-number">{{$follow_number}}名</p>
                 </div>
-                <p class="btn confirm-follow"><a href="">フォローリスト</a></p>
+                <p class="btn confirm-follow"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                     <p class="confirm-title">フォロワー数</p>
                     <p class="confirm-number">{{$follower_number}}名</p>
                 </div>
-                <p class="btn confirm-follow"><a href="">フォロワーリスト</a></p>
+                <p class="btn confirm-follow"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn confirm-search"><a href="">ユーザー検索</a></p>
+            <p class="btn confirm-search"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
