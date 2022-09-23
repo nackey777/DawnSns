@@ -33,10 +33,11 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+Route::post('/post','PostsController@post');
 
 Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@index');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+// Route::get('/follow-list','PostsController@index');
+// Route::get('/follower-list','PostsController@index');
