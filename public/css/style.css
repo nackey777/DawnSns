@@ -116,3 +116,26 @@ header{
 .confirm-search a {
     margin: auto;
 }
+
+
+/*INDEX*/
+.post {
+    border-bottom: 3px solid #d7d7d7;
+}
+.post_face {
+    margin: 10px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+}
+.post_input {
+    width: 75%;
+    height: 80px;
+    border: none;
+    resize: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: 0;
+}
+.post_submit {
+    margin-bottom: 10px;
+}
