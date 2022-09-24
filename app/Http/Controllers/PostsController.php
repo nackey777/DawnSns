@@ -23,8 +23,6 @@ class PostsController extends Controller
     public function post(Request $request){
         $data = $request->input();
         $this->create($data);
-        $follow_number = $this->getFollowNumber();
-        $follower_number = $this->getFollowerNumber();
         return redirect('top');
     }
 

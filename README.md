@@ -18,3 +18,4 @@ C:\xampp\htdocs\dawnSNS-Laravel-6.20.43
 3.ユーザー情報の表示（READ）  
 4.ログイン&ログアウト機能  
 5.共通ヘッダー&サイドバーCSSの調整やリンク設置（login.php）  
+6.投稿機能、投稿表示
