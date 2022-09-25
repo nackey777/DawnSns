@@ -184,8 +184,31 @@ form {
     width: 100%;
     min-height: 40px;
 }
-.button{
+.edit_image{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.trash_image{
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+.trash_container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+.trash_container img{
+    position: absolute;
+    transition: 0.5s;
+}
+.trash_container:hover img:nth-of-type(1) {
+    opacity: 0;
+}
+.trash_container img:nth-of-type(2) {
+    opacity: 0;
+}
+.trash_container:hover img:nth-of-type(2) {
+    opacity: 100;
 }

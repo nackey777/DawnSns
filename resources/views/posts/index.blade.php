@@ -17,8 +17,15 @@
                 <p class="message_created">{{ date("Y/m/d H:i",strtotime($post -> created_at))}}</p>
                 <div class="message_text">
                     <p class="message">{{ $post -> post }}</p>
-                    <a><img class="button" src="images/edit.png"></a>
-                    <a><img class="button" src="images/trash_h.png"></a>
+                        @if($post -> user_id == Auth::id())
+                            <a><img class="edit_image" src="images/edit.png"></a>
+                            <div class="trash_container">
+                                <a>
+                                    <img class="trash_image" src="images/trash.png">
+                                    <img class="trash_image" src="images/trash_h.png">
+                                </a>
+                            </div>
+                        @endif
                 </div>
             </div>
         </div>
