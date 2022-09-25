@@ -19,9 +19,22 @@ class PostsController extends Controller
         $follower_number = $this->getFollowerNumber($user_id);
 
         $posts = DB::table("posts")
-            ->where("user_id",$user_id)
-            ->leftjoin('users', 'posts.user_id', '=', 'users.id')
-            ->select('posts.*', 'users.id', 'users.username', 'users.image')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->select(
+                'posts.user_id',
+                'posts.post',
+                'posts.created_at',
+                'users.id',
+                'users.username',
+                'users.image',
+            )
+            ->whereIn("posts.user_id",function($query) use($user_id){
+                $query
+                    -> select('follower_id')
+                    -> from('follows')
+                    -> where('follow_id',$user_id);
+            })
+            ->orwhere("user_id",$user_id)
             ->latest()
             ->get();
 
