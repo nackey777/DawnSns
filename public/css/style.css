@@ -221,7 +221,7 @@ header{
 }
 .search_username {
     margin: 20px;
-    width: 200px;
+    width: 400px;
     height: 2rem;
 }
 .post_search {
@@ -231,4 +231,26 @@ header{
     height: 36px;
     background: url(../images/search.png) no-repeat;
     cursor: pointer;
+}
+.search_word {
+    margin: 30px 20px;
+}
+.search_wrapper {
+    display: flex;
+}
+.userface {
+    margin: 10px 15px 10px 50px;
+    border-radius: 50%;
+}
+.confirm_username {
+    margin: 20px 0px;
+    width: 40%;
+    line-height: 30px;
+    height: 30px;
+}
+.follow_button {
+    margin: 20px 0px;
+}
+.follow_button a {
+    background-color: #7895d7;
 }

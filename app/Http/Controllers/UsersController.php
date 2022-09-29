@@ -12,13 +12,26 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
-    public function search(){
+    public function search(Request $request){
         $user_id = Auth::id();
         $follow = DB::table('follows')->where("follow_id",$user_id);
         $follow_number = $follow->count();
         $follower = DB::table('follows')->where("follower_id",$user_id);
         $follower_number = $follower->count();
 
-        return view('users.search',compact("follow_number","follower_number"));
+        if($request->isMethod('post')){
+            $search_word = $request->input("search_username");
+            $datas = DB::table("users")
+                ->where("username","like","%$search_word%")
+                ->latest()
+                ->get();
+        } else {
+            $search_word = "";
+            $datas = DB::table("users")
+                ->latest()
+                ->get();
+        }
+
+        return view('users.search',compact("follow_number","follower_number","datas","search_word"));
     }
 }
