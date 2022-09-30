@@ -254,3 +254,9 @@ header{
 .follow_button a {
     background-color: #7895d7;
 }
+.unfollow_button {
+    margin: 20px 0px;
+}
+.unfollow_button a {
+    background-color: #b95656;
+}

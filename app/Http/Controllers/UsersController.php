@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function profile(){
         return view('users.profile');
     }
@@ -18,6 +22,7 @@ class UsersController extends Controller
         $follow_number = $follow->count();
         $follower = DB::table('follows')->where("follower_id",$user_id);
         $follower_number = $follower->count();
+        $follow_ids = $follow->pluck('follower_id')->toArray();
 
         if($request->isMethod('post')){
             $search_word = $request->input("search_username");
@@ -32,6 +37,6 @@ class UsersController extends Controller
                 ->get();
         }
 
-        return view('users.search',compact("follow_number","follower_number","datas","search_word"));
+        return view('users.search',compact("follow_number","follower_number","follow_ids","search_word","datas"));
     }
 }
