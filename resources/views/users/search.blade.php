@@ -16,19 +16,23 @@
         <p>「{{$search_word}}」に一致するユーザーは存在しません</p>
     @else
         @foreach ($datas as $data)
-            <div class="search_wrapper">
-                <img class="userface" src="images/{{ $data -> image }}">
-                <p class="confirm_username">{{ $data -> username }}</p>
-                @if(in_array($data -> id, $follow_ids))
-                    <p class="btn unfollow_button">
-                        <a href="/unfollow/?follow_id={{Auth::id()}}&follower_id={{ $data -> id }}">フォローをはずす</a>
-                    </p>
-                @else
-                    <p class="btn follow_button">
-                        <a href="/follow/?follow_id={{Auth::id()}}&follower_id={{ $data -> id }}">フォローする</a>
-                    </p>
-                @endif
-            </div>
+            @if($data -> id == Auth::id())
+                <!-- 本人は対象外 -->
+            @else
+                <div class="search_wrapper">
+                    <img class="userface" src="images/{{ $data -> image }}">
+                    <p class="confirm_username">{{ $data -> username }}</p>
+                    @if(in_array($data -> id, $follow_ids))
+                        <p class="btn unfollow_button">
+                            <a href="/unfollow/?follow_id={{Auth::id()}}&follower_id={{ $data -> id }}">フォローをはずす</a>
+                        </p>
+                    @else
+                        <p class="btn follow_button">
+                            <a href="/follow/?follow_id={{Auth::id()}}&follower_id={{ $data -> id }}">フォローする</a>
+                        </p>
+                    @endif
+                </div>
+            @endif
         @endforeach
     @endif
 
