@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -38,5 +39,26 @@ class UsersController extends Controller
         }
 
         return view('users.search',compact("follow_number","follower_number","follow_ids","search_word","datas"));
+    }
+
+    public function follow(Request $request){
+        $data = $request->input();
+        $this->create($data);
+        return redirect('search');
+    }
+
+    public function unfollow(Request $request){
+        $data = Follow::where("follow_id",$request->input("follow_id"))
+            ->where("follower_id",$request->input("follower_id"))
+            ->delete();
+
+        return redirect('search');
+    }
+
+    protected function create(array $data){
+        return Follow::create([
+            'follow_id' => $data['follow_id'],
+            'follower_id' => $data['follower_id'],
+        ]);
     }
 }

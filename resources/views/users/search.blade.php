@@ -20,9 +20,13 @@
                 <img class="userface" src="images/{{ $data -> image }}">
                 <p class="confirm_username">{{ $data -> username }}</p>
                 @if(in_array($data -> id, $follow_ids))
-                    <p class="btn unfollow_button"><a href="{{ $data -> id }}">フォローをはずす</a></p>
+                    <p class="btn unfollow_button">
+                        <a href="/unfollow/?follow_id={{Auth::id()}}&follower_id={{ $data -> id }}">フォローをはずす</a>
+                    </p>
                 @else
-                    <p class="btn follow_button"><a href="{{ $data -> id }}">フォローする</a></p>
+                    <p class="btn follow_button">
+                        <a href="/follow/?follow_id={{Auth::id()}}&follower_id={{ $data -> id }}">フォローする</a>
+                    </p>
                 @endif
             </div>
         @endforeach
