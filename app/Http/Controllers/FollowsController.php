@@ -18,10 +18,8 @@ class FollowsController extends Controller
         $datas = DB::table("follows")
             ->join('users', 'follows.follow_id', '=', 'users.id')
             ->select(
-                'follows.follow_id',
                 'follows.follower_id',
                 'follows.created_at',
-                'users.id',
                 'users.image',
             )
             ->where("follow_id",$user_id)
@@ -34,7 +32,6 @@ class FollowsController extends Controller
                 'posts.user_id',
                 'posts.post',
                 'posts.created_at',
-                'users.id',
                 'users.username',
                 'users.image',
             )
@@ -51,7 +48,36 @@ class FollowsController extends Controller
 
     public function followerList(){
         list($follow_number,$follower_number) = $this->getFollowNumber();
-        return view('follows.followerList',compact("follow_number","follower_number"));
+        $user_id = Auth::id();
+        $datas = DB::table("follows")
+            ->join('users', 'follows.follower_id', '=', 'users.id')
+            ->select(
+                'follows.follow_id',
+                'follows.created_at',
+                'users.image',
+            )
+            ->where("follower_id",$user_id)
+            ->latest()
+            ->get();
+
+        $posts = DB::table("posts")
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->select(
+                'posts.user_id',
+                'posts.post',
+                'posts.created_at',
+                'users.username',
+                'users.image',
+            )
+            ->whereIn("posts.user_id",function($query) use($user_id){
+                $query
+                    -> select('follow_id')
+                    -> from('follows')
+                    -> where('follower_id',$user_id);
+            })
+            ->latest()
+            ->get();
+        return view('follows.followerList',compact("follow_number","follower_number","datas","posts"));
     }
 
     protected function getFollowNumber(){
