@@ -15,8 +15,7 @@ class PostsController extends Controller
 
     public function index(){
         $user_id = Auth::id();
-        $follow_number = $this->getFollowNumber($user_id);
-        $follower_number = $this->getFollowerNumber($user_id);
+        list($follow_number,$follower_number) = $this->getFollowNumber();
 
         $posts = DB::table("posts")
             ->join('users', 'posts.user_id', '=', 'users.id')
@@ -47,16 +46,13 @@ class PostsController extends Controller
         return redirect('top');
     }
 
-    protected function getFollowNumber(int $user_id){
+    protected function getFollowNumber(){
+        $user_id = Auth::id();
         $follow = DB::table('follows')->where("follow_id",$user_id);
         $follow_number = $follow->count();
-        return $follow_number;
-    }
-
-    protected function getFollowerNumber(int $user_id){
         $follower = DB::table('follows')->where("follower_id",$user_id);
         $follower_number = $follower->count();
-        return $follower_number;
+        return array($follow_number,$follower_number);
     }
 
     protected function create(array $data){

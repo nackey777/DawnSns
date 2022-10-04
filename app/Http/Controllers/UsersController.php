@@ -18,12 +18,11 @@ class UsersController extends Controller
     }
 
     public function search(Request $request){
-        $user_id = Auth::id();
-        $follow = DB::table('follows')->where("follow_id",$user_id);
-        $follow_number = $follow->count();
-        $follower = DB::table('follows')->where("follower_id",$user_id);
-        $follower_number = $follower->count();
-        $follow_ids = $follow->pluck('follower_id')->toArray();
+        list($follow_number,$follower_number) = $this->getFollowNumber();
+        $follow_ids = DB::table('follows')
+            ->where("follow_id",Auth::id())
+            ->pluck('follower_id')
+            ->toArray();
 
         if($request->isMethod('post')){
             $search_word = $request->input("search_username");
@@ -53,6 +52,15 @@ class UsersController extends Controller
             ->delete();
 
         return redirect('search');
+    }
+
+    protected function getFollowNumber(){
+        $user_id = Auth::id();
+        $follow = DB::table('follows')->where("follow_id",$user_id);
+        $follow_number = $follow->count();
+        $follower = DB::table('follows')->where("follower_id",$user_id);
+        $follower_number = $follower->count();
+        return array($follow_number,$follower_number);
     }
 
     protected function create(array $data){
