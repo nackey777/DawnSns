@@ -260,3 +260,21 @@ header{
 .unfollow_button a {
     background-color: #b95656;
 }
+
+
+/*フォローリスト*/
+.list_title {
+    margin: 20px;
+    font-size: 2rem;
+}
+.follow_list_section {
+    border-bottom: 3px solid #d7d7d7;
+}
+.follow_list {
+    margin: 20px 50px;
+}
+.follow_image {
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}

@@ -14,7 +14,39 @@ class FollowsController extends Controller
 
     public function followList(){
         list($follow_number,$follower_number) = $this->getFollowNumber();
-        return view('follows.followList',compact("follow_number","follower_number"));
+        $user_id = Auth::id();
+        $datas = DB::table("follows")
+            ->join('users', 'follows.follow_id', '=', 'users.id')
+            ->select(
+                'follows.follow_id',
+                'follows.follower_id',
+                'follows.created_at',
+                'users.id',
+                'users.image',
+            )
+            ->where("follow_id",$user_id)
+            ->latest()
+            ->get();
+
+        $posts = DB::table("posts")
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->select(
+                'posts.user_id',
+                'posts.post',
+                'posts.created_at',
+                'users.id',
+                'users.username',
+                'users.image',
+            )
+            ->whereIn("posts.user_id",function($query) use($user_id){
+                $query
+                    -> select('follower_id')
+                    -> from('follows')
+                    -> where('follow_id',$user_id);
+            })
+            ->latest()
+            ->get();
+        return view('follows.followList',compact("follow_number","follower_number","datas","posts"));
     }
 
     public function followerList(){
