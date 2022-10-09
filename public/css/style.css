@@ -278,3 +278,35 @@ header{
     margin-right: 10px;
     cursor: pointer;
 }
+
+
+/*プロフィール*/
+.profile {
+    border-bottom: 3px solid #d7d7d7;
+}
+.profile_wrapper {
+    margin-top: 20px;
+    margin-left: 50px;
+    display: flex;
+    align-items: flex-end;
+}
+.profile_info {
+    display: flex;
+    width: 80%;
+}
+.profile_userface {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+.profile_wrapper li{
+    margin: 20px 20px 40px 30px;
+    display: flex;
+}
+.profile_text {
+    margin-left: 50px;
+}
+.profile_wrapper .unfollow_button {
+    float: right;
+    margin-right: 10px;
+}

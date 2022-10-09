@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -22,7 +22,7 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/main_logo.png" class="main-logo"></a></h1>
+        <h1><a href="/top"><img src="/images/main_logo.png" class="main-logo"></a></h1>
             <div id="menu-toggle">
                 <!-- <div id="user"> -->
                 <p class="username">{{ Auth::user()->username }}さん<span class="down-arrow"></span></p>

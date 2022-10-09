@@ -13,8 +13,24 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
-    public function profile(){
-        return view('users.profile');
+    public function profile($id){
+        list($follow_number,$follower_number) = $this->getFollowNumber();
+        $user_id = Auth::id();
+
+        $user = DB::table('users')
+            ->where("id",$id)
+            ->first();
+
+        $is_follow = DB::table('follows')
+            ->where("follow_id",$user_id)
+            ->where("follower_id",$id)
+            ->exists();
+
+        $posts = DB::table("posts")
+            ->where("user_id",$id)
+            ->latest()
+            ->get();
+        return view('users.profile',compact("follow_number","follower_number","user","posts","is_follow"));
     }
 
     public function search(Request $request){
@@ -43,15 +59,15 @@ class UsersController extends Controller
     public function follow(Request $request){
         $data = $request->input();
         $this->create($data);
-        return redirect('search');
+        return redirect()->back();
     }
 
     public function unfollow(Request $request){
         $data = Follow::where("follow_id",$request->input("follow_id"))
             ->where("follower_id",$request->input("follower_id"))
             ->delete();
+        return redirect()->back();
 
-        return redirect('search');
     }
 
     protected function getFollowNumber(){
