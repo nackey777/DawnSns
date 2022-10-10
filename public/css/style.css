@@ -301,12 +301,48 @@ header{
 }
 .profile_wrapper li{
     margin: 20px 20px 40px 30px;
-    display: flex;
+    display: table;
 }
 .profile_text {
-    margin-left: 50px;
+    display: table-cell;
+    vertical-align: middle;
 }
 .profile_wrapper .unfollow_button {
     float: right;
     margin-right: 10px;
+}
+.profile_title {
+    width: 130px;
+    height: 1.5rem;
+    display: table-cell;
+    vertical-align: middle;
+}
+.profile_post {
+    border: none;
+    border-bottom: 2px solid #d7d7d7;
+    background-color: #f2f2f2;
+    height: 1.5rem;
+    width: 250px;
+}
+.profile_update_button {
+    width: 120px;
+    color: #FFF;
+    background-color: #7b9979;
+    border: none;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 200px;
+    margin-bottom: 100px;
+}
+.profile_post_img {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 250px;
+    font-size: 0.75rem;
+}
+.profile_post_img input {
+    display: none;
 }

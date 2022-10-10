@@ -15,6 +15,8 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 Route::post('/post','PostsController@post');
+Route::get('/profile','PostsController@profile');
+Route::post('/update-profile','PostsController@updateProfile');
 
 Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');
