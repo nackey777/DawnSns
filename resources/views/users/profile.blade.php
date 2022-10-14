@@ -4,7 +4,7 @@
 <section class="profile">
     <div class="profile_wrapper">
         <div class="profile_info">
-            <img class="profile_userface" src="/images/{{$user -> image}}">
+            <img class="profile_userface" src="{{$user -> image}}">
             <ul>
                 <li>
                     <p class="profile_title">Name</p>
@@ -33,7 +33,7 @@
     @foreach ($posts as $post)
         <div class="message_wrapper">
             <a href="/profile/{{ $post -> user_id }}">
-                <img class="message_image" src="/images/{{$user -> image}}">
+                <img class="message_image" src="{{$user -> image}}">
             </a>
             <div class="message_box">
                 <p class="message_username">{{ $user -> username }}</p>

@@ -20,3 +20,14 @@ C:\xampp\htdocs\dawnSNS-Laravel-6.20.43
 5.共通ヘッダー&サイドバーCSSの調整やリンク設置（login.php）  
 6.投稿機能、投稿表示
 7.ユーザー検索機能、ユーザー表示
+8.フォローリスト、フォロワーリスト
+9.他ユーザーのプロフィール
+10.自分のプロフィール更新
+
+
+##画像アップロード
+画像は/storage/app/publicの下に保存される  
+そのためリンクを持たせることで  
+`php artisan storage:link`
+publicの下にstorageというフォルダが作られてブラウザから画像が参照できるようになる
+参照は/storage/upload/image.jpgになる

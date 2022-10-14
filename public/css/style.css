@@ -239,6 +239,8 @@ header{
     display: flex;
 }
 .userface {
+    width: 55px;
+    height: 55px;
     margin: 10px 15px 10px 50px;
     border-radius: 50%;
 }
@@ -274,6 +276,8 @@ header{
     margin: 20px 50px;
 }
 .follow_image {
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;

@@ -3,7 +3,7 @@
 
 <section class="post_message">
     {!! Form::open(["url" => "post"]) !!}
-    <img class="post_face" src="images/dawn.png">
+    <img class="post_face" src="{{$user->image}}">
     {{ Form::hidden('user_id',Auth::id())}}
     {{ Form::textarea('post',null,['class'=>'post_input','required', 'placeholder'=>"何をつぶやこうか...?"]) }}
     {{ Form::submit('',['class'=>'post_submit']) }}
@@ -13,7 +13,7 @@
 <section class="display_message">
     @foreach ($posts as $post)
         <div class="message_wrapper">
-            <img class="message_image" src="images/{{ $post -> image }}">
+            <img class="message_image" src="{{ $post -> image }}">
             <div class="message_box">
                 <p class="message_username">{{ $post -> username }}</p>
                 <p class="message_created">{{ date("Y/m/d H:i",strtotime($post -> created_at))}}</p>

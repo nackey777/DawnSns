@@ -10,7 +10,7 @@
         @else
             @foreach ($datas as $data)
                 <a href="/profile/{{ $data -> follower_id }}">
-                    <img class="follow_image" src="images/{{ $data -> image }}">
+                    <img class="follow_image" src="{{ $data -> image }}">
                 </a>
             @endforeach
         @endif
@@ -21,7 +21,7 @@
     @foreach ($posts as $post)
         <div class="message_wrapper">
             <a href="/profile/{{ $post -> user_id }}">
-                <img class="message_image" src="images/{{ $post -> image }}">
+                <img class="message_image" src="{{ $post -> image }}">
             </a>
             <div class="message_box">
                 <p class="message_username">{{ $post -> username }}</p>

@@ -20,7 +20,9 @@
                 <!-- 本人は対象外 -->
             @else
                 <div class="search_wrapper">
-                    <img class="userface" src="images/{{ $data -> image }}">
+                    <a href="/profile/{{ $data -> id }}">
+                        <img class="userface" src="{{ $data -> image }}">
+                    </a>
                     <p class="confirm_username">{{ $data -> username }}</p>
                     @if(in_array($data -> id, $follow_ids))
                         <p class="btn unfollow_button">

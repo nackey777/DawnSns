@@ -18,6 +18,10 @@ class PostsController extends Controller
         $user_id = Auth::id();
         list($follow_number,$follower_number) = $this->getFollowNumber();
 
+        $user = DB::table('users')
+            ->where("id",$user_id)
+            ->first();
+
         $posts = DB::table("posts")
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->select(
@@ -38,7 +42,7 @@ class PostsController extends Controller
             ->latest()
             ->get();
 
-        return view('posts.index',compact("follow_number","follower_number","posts"));
+        return view('posts.index',compact("follow_number","follower_number","user","posts"));
     }
 
     public function post(Request $request){

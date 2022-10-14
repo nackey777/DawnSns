@@ -16,7 +16,7 @@ class FollowsController extends Controller
         list($follow_number,$follower_number) = $this->getFollowNumber();
         $user_id = Auth::id();
         $datas = DB::table("follows")
-            ->join('users', 'follows.follow_id', '=', 'users.id')
+            ->join('users', 'follows.follower_id', '=', 'users.id')
             ->select(
                 'follows.follower_id',
                 'follows.created_at',
@@ -50,7 +50,7 @@ class FollowsController extends Controller
         list($follow_number,$follower_number) = $this->getFollowNumber();
         $user_id = Auth::id();
         $datas = DB::table("follows")
-            ->join('users', 'follows.follower_id', '=', 'users.id')
+            ->join('users', 'follows.follow_id', '=', 'users.id')
             ->select(
                 'follows.follow_id',
                 'follows.created_at',
