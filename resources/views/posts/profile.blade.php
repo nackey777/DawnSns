@@ -7,48 +7,45 @@
     <div class="profile_info">
         <img class="profile_userface" src="{{$user -> image}}">
         <ul>
-            <li>
+            <li class="{{$errors->has('username') ? 'has-error' : ''}}">
                 <p class="profile_title">Name</p>
                 {{ Form::text('username',$user -> username,['class' => 'profile_post','required']) }}
                 @if ($errors->has('username'))
                     <p class="error">{{$errors->first('username')}}</p>
                 @endif
-                <!-- <input type="text" class="profile_post" value="{{$user -> username}}"> -->
             </li>
-            <li>
+            <li class="{{$errors->has('mail') ? 'has-error' : ''}}">
                 <p class="profile_title">MailAdress</p>
                 {{ Form::text('mail',$user -> mail,['class' => 'profile_post','required']) }}
                 @if ($errors->has('mail'))
                     <p class="error">{{$errors->first('mail')}}</p>
                 @endif
-                <!-- <input type="text" class="profile_post" value="{{$user -> mail}}"> -->
             </li>
-            <!-- <li>
-                <p class="profile_title">Password</p>
-                <input type="text" class="profile_post" value="{{$user -> password}}">
-            </li> -->
-            <li>
+            <li class="{{$errors->has('new_password') ? 'has-error' : ''}}">
                 <p class="profile_title">New Password</p>
                 {{ Form::hidden('password',$user -> password) }}
                 {{ Form::password('new_password',['class' => 'profile_post']) }}
                 @if ($errors->has('new_password'))
                     <p class="error">{{$errors->first('new_password')}}</p>
                 @endif
-                <!-- <input type="text" class="profile_post"> -->
             </li>
-            <li>
+            <li class="{{$errors->has('bio') ? 'has-error' : ''}}">
                 <p class="profile_title">Bio</p>
-                {{ Form::text('bio',$user -> bio,['class' => 'profile_post','required']) }}
+                {{ Form::textarea('bio',$user -> bio,['class' => 'profile_post']) }}
                 @if ($errors->has('bio'))
                     <p class="error">{{$errors->first('bio')}}</p>
                 @endif
-                <!-- <input type="text" class="profile_post" value="{{$user -> bio}}"> -->
             </li>
-            <li>
+            <li class="{{$errors->has('image') ? 'has-error' : ''}}">
                 <p class="profile_title">Icon Image</p>
+                <img id="preview">
+                <p class="profile_post_imgname">選択されていません</p>
                 <label class="profile_post_img">
-                    {{ Form::file('image') }}ファイルを選択
+                    {{ Form::file('image',['id'=>'file']) }}ファイルを選択
                 </label>
+                @if ($errors->has('image'))
+                    <p class="error">{{$errors->first('image')}}</p>
+                @endif
             </li>
             {{ Form::submit('更新',['class' => 'profile_update_button']) }}
         </ul>

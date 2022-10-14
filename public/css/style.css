@@ -3,6 +3,9 @@ html{
 }
 body{
 }
+textarea{
+    font-family: "Arial";
+}
 /* header */
 header{
     background:#3C4767;
@@ -325,8 +328,15 @@ header{
     border: none;
     border-bottom: 2px solid #d7d7d7;
     background-color: #f2f2f2;
-    height: 1.5rem;
-    width: 250px;
+    width: 300px;
+    padding: 5px;
+    font-style: normal;
+}
+textarea.profile_post{
+    width: 300px;
+    height: 200px;
+    resize: none;
+    padding: 5px;
 }
 .profile_update_button {
     width: 120px;
@@ -339,6 +349,10 @@ header{
     margin-left: 200px;
     margin-bottom: 100px;
 }
+.profile_post_imgname {
+    margin-bottom: 15px;
+    font-size: 0.75rem;
+}
 .profile_post_img {
     padding: 10px;
     background-color: #f2f2f2;
@@ -349,4 +363,17 @@ header{
 }
 .profile_post_img input {
     display: none;
+}
+#preview {
+    width: 100px;
+}
+.has-error input {
+    background-color: #ffd9e1;
+}
+.has-error textarea {
+    background-color: #ffd9e1;
+}
+.error {
+    color: #ce5540;
+    margin-top: 10px;
 }

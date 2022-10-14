@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class PostsController extends Controller
 {
@@ -62,6 +64,8 @@ class PostsController extends Controller
     }
 
     public function updateProfile(Request $request){
+        $this->validator($request->all(), 'users')->validate();
+
         if($request->file("image")){
             //拡張子付きでファイル名を取得
             $filenameWithExt = $request->file("image")->getClientOriginalName();
@@ -119,5 +123,35 @@ class PostsController extends Controller
             'password' => $pass,
             'bio' => $data['bio'],
         ]);
+    }
+
+    protected function validator(array $data){
+        return Validator::make($data,
+            [
+                'username' => ['required', 'min:4', 'max:12'],
+                'mail' => ['required', 'min:4', 'max:12', Rule::unique('users')->ignore(Auth::id())],
+                'new_password' => ['sometimes', 'nullable', 'regex:/^[a-zA-Z0-9]+$/', 'min:4', 'max:12'],
+                'bio' => ['max:200'],
+                'image' => ['mimes:jpg,png,bmp,gif,svg'],
+            ],
+            [
+                'username.required' => '※必須項目です',
+                'username.min' => '※4文字以上で入力してください',
+                'username.max' => '※12文字以下で入力してください',
+
+                'mail.required' => '※必須項目です',
+                'mail.min' => '※4文字以上で入力してください',
+                'mail.max' => '※12文字以下で入力してください',
+                'mail.unique' => '※すでに登録されているメールアドレスです',
+
+                'new_password.regex' => '※半角英数字で入力してください',
+                'new_password.min' => '※4文字以上で入力してください',
+                'new_password.max' => '※12文字以下で入力してください',
+
+                'bio.max' => '※200文字以下で入力してください',
+
+                'image.mimes' => '※登録できる画像の形式はjpg・png・bmp・gif・svgです',
+            ]
+        );
     }
 }

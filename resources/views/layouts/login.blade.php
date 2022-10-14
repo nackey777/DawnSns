@@ -69,4 +69,30 @@
             $(this).children(".menu").toggle();
         });
     });
+
+    //profile image
+    $(function() {
+        $('input').on('change', function () {
+            var file = $(this).prop('files')[0];
+            $('p.profile_post_imgname').text(file.name);
+        });
+    });
+    function previewFile(file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imageUrl = e.target.result;
+            const img = document.getElementById('preview');
+            img.src = imageUrl;
+        }
+        reader.readAsDataURL(file);
+    }
+
+    const fileInput = document.getElementById('file');
+    const handleFileSelect = () => {
+        const files = fileInput.files;
+        for (let i = 0; i < files.length; i++) {
+            previewFile(files[i]);
+        }
+    }
+    fileInput.addEventListener('change', handleFileSelect);
 </script>
