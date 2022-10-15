@@ -25,6 +25,7 @@ class PostsController extends Controller
     }
 
     public function post(Request $request){
+        $this->postValidator($request->all(), 'posts')->validate();
         $data = $request->input();
         $this->create($data);
         return redirect('top');
@@ -127,6 +128,17 @@ class PostsController extends Controller
                 'image' => "/storage/upload/".$filenameToStore,
             ]);
         }
+    }
+
+    protected function postValidator(array $data){
+        return Validator::make($data,
+            [
+                'post' => ['required','max:150'],
+            ],
+            [
+                'post.max' => '※150文字以下で入力してください',
+            ]
+        );
     }
 
     protected function validator(array $data){

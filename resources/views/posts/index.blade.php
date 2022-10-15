@@ -35,3 +35,12 @@
 </section>
 
 @endsection
+
+<script>
+    window.addEventListener("load", function() {
+        @if ($errors->any())
+            alert("{{ implode('\n', $errors->all()) }}");
+        @endif
+    });
+
+</script>
