@@ -26,7 +26,7 @@
 
 <div class="createUserForm {{$errors->has('password') ? 'has-error' : ''}}">
     {{ Form::label('パスワード') }}
-    {{ Form::text('password',null,['class' => 'input','required']) }}
+    {{ Form::password('password',['class' => 'input','required']) }}
     @if ($errors->has('password'))
         <p class="error">{{$errors->first('password')}}</p>
     @endif
@@ -34,7 +34,7 @@
 
 <div class="createUserForm {{$errors->has('password-confirm') ? 'has-error' : ''}}">
     {{ Form::label('パスワード確認') }}
-    {{ Form::text('password-confirm',null,['class' => 'input', 'required']) }}
+    {{ Form::password('password-confirm',['class' => 'input', 'required']) }}
     @if ($errors->has('password-confirm'))
        <p class="error">{{$errors->first('password-confirm')}}</p>
     @endif
