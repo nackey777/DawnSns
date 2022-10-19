@@ -20,7 +20,7 @@
                 <div class="message_text">
                     <p class="message">{{ $post -> post }}</p>
                         @if($post -> user_id == Auth::id())
-                            <a><img class="edit_image" src="images/edit.png"></a>
+                            <a onclick="onModal('{{ $post -> post }}','{{ $post -> id }}')"><img class="edit_image" src="images/edit.png"></a>
                             <div class="trash_container">
                                 <a>
                                     <img class="trash_image" src="images/trash.png">
@@ -34,6 +34,24 @@
       @endforeach
 </section>
 
+<section id="modal" style="display: none;">
+    <a onclick="offModal()" class="overlay"></a>
+    <div class="modal_wrapper">
+        <div class="modal-contents">
+            <a onclick="offModal()" class="modal-close">✕</a>
+            <div class="modal-content">
+                {!! Form::open(["url" => "update-post"]) !!}
+                    {{ Form::hidden('id',null,['id'=>'update_postid'])}}
+                    {{ Form::textarea('post',null,['id'=>'update_post','class'=>'update_post','required']) }}
+                    <div class="right">
+                        {{ Form::submit('',['class'=>'update_post_submit']) }}
+                    </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</section>
+
 @endsection
 
 <script>
@@ -42,5 +60,15 @@
             alert("{{ implode('\n', $errors->all()) }}");
         @endif
     });
+
+    function onModal(m,id){
+        document.getElementById("modal").style.display = 'block';
+        document.getElementById("update_postid").value = id;
+        document.getElementById("update_post").value = m;
+    }
+
+    function offModal(){
+        document.getElementById("modal").style.display = 'none';
+    }
 
 </script>

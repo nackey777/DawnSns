@@ -31,6 +31,13 @@ class PostsController extends Controller
         return redirect('top');
     }
 
+    public function updatePost(Request $request){
+        $this->postValidator($request->all(), 'posts')->validate();
+        $data = $request->input();
+        $this->updatePostData($data);
+        return redirect('top');
+    }
+
     public function profile(){
         $user_id = Auth::id();
         list($follow_number,$follower_number) = $this->getFollowNumber();
@@ -60,10 +67,11 @@ class PostsController extends Controller
         return DB::table("posts")
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->select(
+                'posts.id',
                 'posts.user_id',
                 'posts.post',
                 'posts.created_at',
-                'users.id',
+                // 'users.id',
                 'users.username',
                 'users.image',
             )
@@ -128,6 +136,12 @@ class PostsController extends Controller
                 'image' => "/storage/upload/".$filenameToStore,
             ]);
         }
+    }
+
+    protected function updatePostData(array $data){
+        return Post::where("id",$data['id'])->update([
+            'post' => $data['post'],
+        ]);
     }
 
     protected function postValidator(array $data){
