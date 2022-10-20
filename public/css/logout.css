@@ -5,5 +5,109 @@ html{
 }
 body{
     height: 100%;
-    background: #3C4767;
+    background: linear-gradient(#3C4767, 80%, #ce5540);
+    color: #FFF;
+}
+
+.pb30 {
+    padding-bottom: 30px;
+}
+
+header {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+header p {
+    font-size: 1.5rem;
+}
+
+.message_hello {
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+.message_complete {
+    margin-bottom: 30px;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 5px;
+}
+
+form {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+#clear {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+h2 {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+}
+
+.createUserForm {
+    margin-bottom: 20px;
+}
+.error {
+    color: #ce5540;
+}
+.has-error input {
+    color: #630015;
+    border-color: #c20c33;
+    background-color: #ffd9e1;
+}
+
+.button {
+    display: block;
+    width: 150px;
+    height: 30px;
+    color: #FFF;
+    background-color: #5863a2;
+    border: none;
+    border-radius: 5px;
+}
+.button:hover {
+    cursor: pointer;
+    color: #5863a2;
+    background-color: #FFF;
+}
+.center {
+    margin: auto;
+}
+.right {
+    margin: 10px 0 80px auto;
+}
+
+.backLink {
+    text-align: center;
+    padding-bottom: 30px;
+}
+.backLink a{
+    color: #FFF;
+}
+.backLink a:hover {
+    color: #5863a2;
 }

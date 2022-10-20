@@ -3,9 +3,67 @@ html{
 }
 body{
 }
+textarea{
+    font-family: "Arial";
+}
 /* header */
 header{
     background:#3C4767;
+}
+#head {
+    height: 50px;
+}
+.main-logo {
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    float: left;
+}
+.username {
+    color: #FFF;
+    padding-top: 20px;
+}
+.down-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    color: #FFF;
+    line-height: 1;
+    width: 0.5em;
+    height: 0.5em;
+    border: 0.1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateY(-25%) rotate(135deg);
+    margin-left: 0.5em;
+    margin-right: 20px;
+}
+#menu-toggle {
+    text-align: right;
+}
+.menu {
+    background-color: #FFF;
+    width: 200px;
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    list-style: none;
+}
+.menu li {
+    text-align: center;
+    border: 1px solid #3C4767;
+}
+.menu li :hover {
+    background-color: #de563c;
+    color: #FFF;
+}
+.menu li a {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 200px;
+    display: block;
+    color: black;
 }
 
 /* main content */
@@ -19,4 +77,363 @@ header{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
+    /* padding-bottom: 100px; */
+}
+
+
+/*フォロー&フォロワーリスト*/
+#confirm {
+    font-size: 0.8rem;
+    border-bottom: 1px solid #6C6C6C;
+    margin-bottom: 20px;
+}
+.confirm-name {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.confirm-title {
+    float: left;
+    margin-left: 10px;
+}
+.confirm-number {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.btn a {
+    display: block;
+    width: 120px;
+    color: #FFF;
+    background-color: #3C4767;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+}
+.confirm-follow a {
+    margin: 0 0 0 auto;
+    margin-bottom: 10px;
+}
+.confirm-search a {
+    margin: auto;
+}
+
+
+/*INDEX*/
+.post_message form{
+    border-bottom: 3px solid #d7d7d7;
+    display: flex;
+    align-items: flex-end;
+}
+.post_face {
+    margin: 10px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+.post_input {
+    width: 100%;
+    height: 80px;
+    border: none;
+    resize: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: 0;
+}
+.post_submit {
+    margin: 5px;
+    border: 0px;
+    width: 50px;
+    height: 36px;
+    background: url(../images/post.png) no-repeat;
+    cursor: pointer;
+}
+
+.message_wrapper {
+    border-bottom: 1px solid #d7d7d7;
+    display: flex;
+}
+.message_image {
+    margin: 20px 5px 20px 20px;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+}
+.message_box {
+    margin: 20px;
+    width: 100%;
+}
+.message_username {
+    float: left;
+    font-size: 0.75rem;
+    color: gray;
+}
+.message_created {
+    text-align: right;
+    font-size: 0.75rem;
+    color: gray;
+}
+.message_text {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+.message {
+    margin-top: 10px;
+    width: 100%;
+    min-height: 40px;
+}
+.edit_image{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.trash_image{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.trash_container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+.trash_container img{
+    position: absolute;
+    transition: 0.5s;
+}
+.trash_container:hover img:nth-of-type(1) {
+    opacity: 0;
+}
+.trash_container img:nth-of-type(2) {
+    opacity: 0;
+}
+.trash_container:hover img:nth-of-type(2) {
+    opacity: 100;
+}
+
+
+/*serach*/
+.search form {
+    border-bottom: 3px solid #d7d7d7;
+    display: flex;
+}
+.search_username {
+    margin: 20px;
+    width: 400px;
+    height: 2rem;
+}
+.post_search {
+    margin: 20px 0px;
+    border: 0px;
+    width: 50px;
+    height: 36px;
+    background: url(../images/search.png) no-repeat;
+    cursor: pointer;
+}
+.search_word {
+    margin: 30px 20px;
+}
+.search_wrapper {
+    display: flex;
+}
+.userface {
+    width: 55px;
+    height: 55px;
+    margin: 10px 15px 10px 50px;
+    border-radius: 50%;
+}
+.confirm_username {
+    margin: 20px 0px;
+    width: 40%;
+    line-height: 30px;
+    height: 30px;
+}
+.follow_button {
+    margin: 20px 0px;
+}
+.follow_button a {
+    background-color: #7895d7;
+}
+.unfollow_button {
+    margin: 20px 0px;
+}
+.unfollow_button a {
+    background-color: #b95656;
+}
+
+
+/*フォローリスト*/
+.list_title {
+    margin: 20px;
+    font-size: 2rem;
+}
+.follow_list_section {
+    border-bottom: 3px solid #d7d7d7;
+}
+.follow_list {
+    margin: 20px 50px;
+}
+.follow_image {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+/*プロフィール*/
+.profile {
+    border-bottom: 3px solid #d7d7d7;
+}
+.profile_wrapper {
+    margin-top: 20px;
+    margin-left: 50px;
+    display: flex;
+    align-items: flex-end;
+}
+.profile_info {
+    display: flex;
+    width: 80%;
+}
+.profile_userface {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+.profile_wrapper li{
+    margin: 20px 20px 40px 30px;
+    display: table;
+}
+.profile_text {
+    display: table-cell;
+    vertical-align: middle;
+}
+.profile_wrapper .unfollow_button {
+    float: right;
+    margin-right: 10px;
+}
+.profile_title {
+    width: 130px;
+    height: 1.5rem;
+    display: table-cell;
+    vertical-align: middle;
+}
+.profile_post {
+    border: none;
+    border-bottom: 2px solid #d7d7d7;
+    background-color: #f2f2f2;
+    width: 300px;
+    padding: 5px;
+    font-style: normal;
+}
+textarea.profile_post{
+    width: 300px;
+    height: 200px;
+    resize: none;
+    padding: 5px;
+}
+.profile_update_button {
+    width: 120px;
+    color: #FFF;
+    background-color: #7b9979;
+    border: none;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 200px;
+    margin-bottom: 100px;
+}
+.profile_post_imgname {
+    margin-bottom: 15px;
+    font-size: 0.75rem;
+}
+.profile_post_img {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 250px;
+    font-size: 0.75rem;
+}
+.profile_post_img input {
+    display: none;
+}
+#preview {
+    width: 100px;
+}
+.has-error input {
+    background-color: #ffd9e1;
+}
+.has-error textarea {
+    background-color: #ffd9e1;
+}
+.error {
+    color: #ce5540;
+    margin-top: 10px;
+}
+
+
+/*モーダル*/
+.modal_wrapper {
+    z-index: 5;
+    background-color: #FFF;
+    position: fixed;
+    width: 70%;
+    max-width: 650px;
+    min-width: 300px;
+    max-height: 550px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.modal-contents {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.modal-content {
+    margin: 25px;
+}
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.update_post {
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.update_post_submit {
+    border: 0px;
+    width: 50px;
+    height: 50px;
+    resize: none;
+    background: url(../images/edit.png) no-repeat;
+    cursor: pointer;
+}
+.right {
+    display: flex;
+    justify-content: flex-end;
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -48,11 +49,38 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'username' => 'required|string|max:255',
-            'mail' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:4|confirmed',
-        ]);
+        return Validator::make($data,
+            [
+                'username' => ['required', 'min:4', 'max:12'],
+                'mail' => ['required', 'min:4', 'max:12', 'unique:users,mail'],
+                'password' => ['required','regex:/^[a-zA-Z0-9]+$/', 'min:4', 'max:12'],
+                'password-confirm' => ['required', 'regex:/^[a-zA-Z0-9]+$/', 'min:4', 'max:12', 'same:password'],
+            ],
+            [
+                'username.required' => '※必須項目です',
+                'username.min' => '※4文字以上で入力してください',
+                'username.max' => '※12文字以下で入力してください',
+
+                'mail.required' => '※必須項目です',
+                'mail.min' => '※4文字以上で入力してください',
+                'mail.max' => '※12文字以下で入力してください',
+                'mail.unique' => '※すでに登録されているメールアドレスです',
+
+                'password.required' => '※必須項目です',
+                'password.regex' => '※半角英数字で入力してください',
+                'password.min' => '※4文字以上で入力してください',
+                'password.max' => '※12文字以下で入力してください',
+
+                'password-confirm.required' => '※必須項目です',
+                'password-confirm.regex' => '※半角英数字で入力してください',
+                'password-confirm.min' => '※4文字以上で入力してください',
+                'password-confirm.max' => '※12文字以下で入力してください',
+                'password-confirm.same' => '※パスワードと確認用パスワードが一致していません',
+
+                //MEMO
+                //ハッシュ化されているのでパスワードはDBの値と比較しても一致しない
+            ]
+        );
     }
 
     /**
@@ -70,22 +98,18 @@ class RegisterController extends Controller
         ]);
     }
 
-
-    // public function registerForm(){
-    //     return view("auth.register");
-    // }
-
     public function register(Request $request){
         if($request->isMethod('post')){
+            $this->validator($request->all(), 'users')->validate();
             $data = $request->input();
-
             $this->create($data);
-            return redirect('added');
+            return redirect()->action('Auth\RegisterController@added', ['username' => $request->input("username")]);
         }
         return view('auth.register');
     }
 
-    public function added(){
-        return view('auth.added');
+    public function added(Request $request){
+        $username = $request->get("username");
+        return view("auth.added",compact("username"));
     }
 }

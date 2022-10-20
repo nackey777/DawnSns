@@ -4,16 +4,16 @@
 
 {!! Form::open() !!}
 
-<p>DAWNSNSへようこそ</p>
+<h2>DAWNのSNSへようこそ</h2>
 
-{{ Form::label('e-mail') }}
+{{ Form::label('メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
-{{ Form::label('password') }}
+{{ Form::label('パスワード') }}
 {{ Form::password('password',['class' => 'input']) }}
 
-{{ Form::submit('ログイン') }}
+{{ Form::submit('ログイン',['class' => 'button right']) }}
 
-<p><a href="/register">新規ユーザーの方はこちら</a></p>
+<p class="backLink"><a href="/register">新規ユーザーの方はこちら</a></p>
 
 {!! Form::close() !!}
 
