@@ -16,6 +16,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/top','PostsController@index');
 Route::post('/post','PostsController@post');
 Route::post('/update-post','PostsController@updatePost');
+Route::get('/delete-post/{id}','PostsController@deletePost');
 Route::get('/profile','PostsController@profile');
 Route::post('/update-profile','PostsController@updateProfile');
 

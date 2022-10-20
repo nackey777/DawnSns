@@ -9,3 +9,11 @@ $('.on_modal').on('click', function () {
 $('.off_modal').on('click', function () {
     $("#modal").hide();
 });
+
+$('.delete_post').on('click', function () {
+    if (confirm('このつぶやきを削除します。よろしいでしょうか？')) {
+        location.href = '/delete-post/' + $(this).data("id");
+    } else {
+        return false;
+    }
+});

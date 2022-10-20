@@ -38,6 +38,11 @@ class PostsController extends Controller
         return redirect('top');
     }
 
+    public function deletePost($id){
+        $data = Post::where("id",$id)->delete();
+        return redirect('top');
+    }
+
     public function profile(){
         $user_id = Auth::id();
         list($follow_number,$follower_number) = $this->getFollowNumber();

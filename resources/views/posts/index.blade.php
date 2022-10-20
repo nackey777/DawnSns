@@ -22,7 +22,7 @@
                         @if($post -> user_id == Auth::id())
                             <a class="on_modal" data-id="{{ $post -> id }}"><img class="edit_image" src="images/edit.png"></a>
                             <div class="trash_container">
-                                <a>
+                                <a class="delete_post" data-id="{{ $post -> id }}">
                                     <img class="trash_image" src="images/trash.png">
                                     <img class="trash_image" src="images/trash_h.png">
                                 </a>
