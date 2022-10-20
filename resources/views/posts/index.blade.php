@@ -3,10 +3,10 @@
 
 <section class="post_message">
     {!! Form::open(["url" => "post"]) !!}
-    <img class="post_face" src="{{$user->image}}">
-    {{ Form::hidden('user_id',Auth::id())}}
-    {{ Form::textarea('post',null,['class'=>'post_input','required', 'placeholder'=>"何をつぶやこうか...?"]) }}
-    {{ Form::submit('',['class'=>'post_submit']) }}
+        <img class="post_face" src="{{$user->image}}">
+        {{ Form::hidden('user_id',Auth::id())}}
+        {{ Form::textarea('post',null,['class'=>'post_input','required', 'placeholder'=>"何をつぶやこうか...?"]) }}
+        {{ Form::submit('',['class'=>'post_submit']) }}
     {!! Form::close() !!}
 </section>
 
@@ -18,9 +18,9 @@
                 <p class="message_username">{{ $post -> username }}</p>
                 <p class="message_created">{{ date("Y/m/d H:i",strtotime($post -> created_at))}}</p>
                 <div class="message_text">
-                    <p class="message">{{ $post -> post }}</p>
+                    <p class="message">{!! nl2br(e($post -> post)) !!}</p>
                         @if($post -> user_id == Auth::id())
-                            <a onclick="onModal('{{ $post -> post }}','{{ $post -> id }}')"><img class="edit_image" src="images/edit.png"></a>
+                            <a class="on_modal" data-id="{{ $post -> id }}"><img class="edit_image" src="images/edit.png"></a>
                             <div class="trash_container">
                                 <a>
                                     <img class="trash_image" src="images/trash.png">
@@ -35,10 +35,10 @@
 </section>
 
 <section id="modal" style="display: none;">
-    <a onclick="offModal()" class="overlay"></a>
+    <a class="overlay off_modal"></a>
     <div class="modal_wrapper">
         <div class="modal-contents">
-            <a onclick="offModal()" class="modal-close">✕</a>
+            <a class="modal-close off_modal">✕</a>
             <div class="modal-content">
                 {!! Form::open(["url" => "update-post"]) !!}
                     {{ Form::hidden('id',null,['id'=>'update_postid'])}}
@@ -60,15 +60,4 @@
             alert("{{ implode('\n', $errors->all()) }}");
         @endif
     });
-
-    function onModal(m,id){
-        document.getElementById("modal").style.display = 'block';
-        document.getElementById("update_postid").value = id;
-        document.getElementById("update_post").value = m;
-    }
-
-    function offModal(){
-        document.getElementById("modal").style.display = 'none';
-    }
-
 </script>
