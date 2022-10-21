@@ -22,16 +22,16 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="/images/main_logo.png" class="main-logo"></a></h1>
-            <div id="menu-toggle">
-                <!-- <div id="user"> -->
-                <p class="username">{{ Auth::user()->username }}さん<span class="down-arrow"></span></p>
-                <!-- <div> -->
-                <ul class="menu">
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+            <h1><a href="/top"><img src="/images/main_logo.png" class="main-logo"></a></h1>
+            <div class="right">
+                <div id="menu-toggle">
+                    <p class="username">{{ Auth::user()->username }}さん<span class="down-arrow"></span></p>
+                    <ul class="menu">
+                        <li><a href="/top">ホーム</a></li>
+                        <li><a href="/profile">プロフィール</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -68,6 +68,7 @@
     $(function() {
         $('#menu-toggle').click(function() {
             $(this).children(".menu").toggle();
+            $('.down-arrow').toggleClass("up-arrow");
         });
     });
 

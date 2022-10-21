@@ -38,8 +38,14 @@ header{
     margin-left: 0.5em;
     margin-right: 20px;
 }
+.up-arrow {
+    transform: translateY(25%) rotate(-45deg);
+}
+
 #menu-toggle {
-    text-align: right;
+    cursor: pointer;
+    height: 50px;
+    padding-left: 20px;
 }
 .menu {
     background-color: #FFF;
